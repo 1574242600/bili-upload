@@ -1,6 +1,5 @@
 import upload.file as f
 import upload.upload as upload
-import hashlib
 
 cookies = ""
 
