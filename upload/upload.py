@@ -139,9 +139,9 @@ class T(threading.Thread):
 
         list = []
         file = self.file
-        put_size = self.upload.json['chunk_size']
 
         while True:
+            put_size = self.upload.json['chunk_size']
             threadLock.acquire()
             k = k + 1
             threadLock.release()
@@ -158,9 +158,7 @@ class T(threading.Thread):
                 ed_put_size = file.size
                 put_size = int(ed_put_size) % put_size
                 if lock != 3:
-                    threadLock.acquire()
                     lock = lock + 1
-                    threadLock.release()
 
             if lock == 3:  # 当lock自增两次时上传完毕
                 break
