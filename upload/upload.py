@@ -154,10 +154,13 @@ class T(threading.Thread):
             ed_put_size = put_size * p
 
             if ed_put_size >= int(file.size):  # 当上传结束时数据大小大于等于 文件大小时
+
                 ed_put_size = file.size
                 put_size = int(ed_put_size) % put_size
                 if lock != 3:
+                    threadLock.acquire()
                     lock = lock + 1
+                    threadLock.release()
 
             if lock == 3:  # 当lock自增两次时上传完毕
                 break
