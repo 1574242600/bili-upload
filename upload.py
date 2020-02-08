@@ -17,7 +17,7 @@ json = {
     "tag": "日漫",  # 标签
     "desc_format_id": 0,  # 不知道
     "desc": "测试投稿",
-    "dynamic": "#日漫#",  # 标签
+    "dynamic": "#日漫#",  # 粉丝动态
     "subtitle": {"open": 0, "lan": ""}  # 不知道
 }
 
@@ -27,7 +27,7 @@ f = f.File('1.mp4')
 # print(f.read(2500))
 
 upload = upload.Upload()
-upload.init('23333.mp4', f.size, cookies)  # '23333.mp4' 可以随便填，但必须有mp4后缀
+upload.init('23333.mp4', f.size, cookies)  # '23333.mp4' 可以随便填，但必须有相应的视频格式后缀
 upload.set_post_json(json)
 upload.run(f)
 
